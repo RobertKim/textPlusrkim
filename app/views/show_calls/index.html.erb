@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<section class="container">
+
+<h1>Listing of Show Calls</h1>
+
+
+	<input type="search" class="light-table-filter" data-table="order-table" placeholder="Search input filter here">
+	<br>
+	<br>
+
+
+
+<table class="order-table table" id="show_calls">
+	<thead>
+	<tr>
+		<th>UUID</th>
+		<th>Direction</th>
+		<th>Date Created</th>
+		<th>Created Epoch</th>
+		<th>Name</th>
+		<th>State</th>
+		<th>CID Name</th>
+		<th>CID Num</th>
+		<th>IP Address</th>
+	</tr>
+</thead>
+<tbody>
+<% @show_calls.each do |show_call| %>
+  <tr>
+  	<td><%= link_to "#{show_call.uuid}", show_call %></td>
+  	<td><%= show_call.direction %></td>
+  	<td><%= show_call.created %></td>
+  	<td><%= show_call.created_epoch %></td>
+  	<td><%= show_call.name %></td>
+  	<td><%= show_call.state %></td>
+  	<td><%= show_call.cid_name %></td>
+  	<td><%= show_call.cid_num %></td>
+  	<td><%= show_call.ip_addr %></td>
+  	<td><%= link_to 'Destroy', show_call, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</section>
+
+<h2>Import Show Calls in CSV file format</h2>
+
+<%= form_tag import_show_calls_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<h2>Download this listing</h2>
+<p>
+	Download to
+	<%= link_to "CSV file format", show_calls_path(format: "csv") %>
+</p>

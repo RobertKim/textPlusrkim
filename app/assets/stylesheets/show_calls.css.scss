@@ -1,0 +1,15 @@
+body {
+  font: normal small/1.4 sans-serif;
+}
+table {
+  border-collapse: collapse;
+  width: 95%;
+}
+th, td {
+  padding: 0.25rem;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+.hover {
+  background: yellow;
+}

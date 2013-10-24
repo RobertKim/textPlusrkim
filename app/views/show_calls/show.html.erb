@@ -1,0 +1,183 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Back', show_calls_path %>
+
+<h1>Attributes of selected show call</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th><strong>Title</strong></th>
+			<th><strong>Detail</strong></th>
+	</thead>
+
+	<tbody>
+		<% @updated_attributes = @show_call.attributes.except!("id", "created_at", "updated_at") %>
+		
+			<% @updated_attributes.each do |k,v| %>
+			<tr>
+			  <td><%= k %></td>
+			  <td><%= v %></td>
+			</tr>
+		<% end %>
+		
+		
+	</tbody>
+</table> 
+		<!-- <tr>
+      <td> direction </td>
+      <td><%= @show_call.direction %> </td>
+      </tr> 
+		<tr>
+      <td> created </td>
+      <td><%= @show_call.created %> </td>
+      </tr> 
+		<tr>
+      <td> created_epoch </td>
+      <td><%= @show_call.created_epoch %> </td>
+      </tr> 
+		<tr>
+      <td> name </td>
+      <td><%= @show_call.name %></td>
+      </tr> 
+		<tr>
+      <td> state </td>
+      <td><%= @show_call.state %> </td>
+      </tr> 
+		<tr>
+      <td> cid_name </td>
+      <td><%= @show_call.cid_name %> </td>
+      </tr> 
+		<tr>
+      <td> cid_num  </td>
+      <td><%= @show_call.cid_num %> </td>
+      </tr> 
+		<tr>
+      <td> ip_addr  </td>
+      <td><%= @show_call.ip_addr %> </td>
+      </tr> 
+		<tr>
+      <td> dest </td>
+      <td><%= @show_call.dest %> </td>
+      </tr> 
+		<tr>
+      <td> presence_id  </td>
+      <td><%= @show_call.presence_id %></td>
+      </tr> 
+		<tr>
+      <td> presence_data </td>
+      <td><%= @show_call.presence_data %></td>
+      </tr> 
+		<tr>
+      <td> callstate </td>
+      <td><%= @show_call.callstate %></td>
+      </tr> 
+		<tr>
+      <td> callee_name </td>
+      <td><%= @show_call.callee_name %></td>
+      </tr> 
+		<tr>
+      <td> callee_num </td>
+      <td><%= @show_call.callee_num %></td>
+      </tr> 
+		<tr>
+      <td> callee_direction </td>
+      <td><%= @show_call.callee_direction %></td>
+      </tr> 
+		<tr>
+      <td> call_uuid </td>
+      <td><%= @show_call.call_uuid %></td>
+      </tr> 
+		<tr>
+      <td> hostname </td>
+      <td><%= @show_call.hostname %></td>
+    </tr> 
+		<tr>
+      <td> sent_callee_name </td>
+      <td><%= @show_call.sent_callee_name %></td>
+      </tr> 
+		<tr>
+      <td> sent_callee_num </td>
+      <td><%= @show_call.sent_callee_num %></td>
+      </tr> 
+		<tr>
+      <td> b_uuid </td>
+      <td><%= @show_call.b_uuid %></td>
+      </tr> 
+		<tr>
+      <td> b_direction </td>
+      <td><%= @show_call.b_direction %></td>
+      </tr> 
+		<tr>
+      <td> b_created </td>
+      <td><%= @show_call.b_created %></td>
+      </tr> 
+		<tr>
+      <td> b_created_epoch </td>
+      <td><%= @show_call.b_created_epoch %></td>
+      </tr> 
+		<tr>
+      <td> b_name </td>
+      <td><%= @show_call.b_name %></td>
+      </tr> 
+		<tr>
+      <td> b_state </td>
+      <td><%= @show_call.b_state %></td>
+      </tr> 
+		<tr>
+      <td> b_cid_name </td>
+      <td><%= @show_call.b_cid_name %></td>
+      </tr> 
+		<tr>
+      <td> b_cid_num </td>
+      <td><%= @show_call.b_cid_num %></td>
+      </tr> 
+		<tr>
+      <td> b_ip_addr </td>
+      <td><%= @show_call.b_ip_addr %></td>
+      </tr> 
+		<tr>
+      <td> b_dest </td>
+      <td><%= @show_call.b_dest %></td>
+      </tr> 
+		<tr>
+      <td> b_presence_id </td>
+      <td><%= @show_call.b_presence_id %></td>
+      </tr> 
+		<tr>
+      <td> b_presence_data </td>
+      <td><%= @show_call.b_presence_data %></td>
+      </tr> 
+		<tr>
+      <td> b_callstate </td>
+      <td><%= @show_call.b_callstate %></td>
+      </tr> 
+		<tr>
+      <td> b_callee_name </td>
+      <td><%= @show_call.b_callee_name %></td>
+      </tr> 
+		<tr>
+      <td> b_callee_num </td>
+      <td><%= @show_call.b_callee_num %></td>
+      </tr> 
+		<tr>
+      <td> b_callee_direction </td>
+      <td><%= @show_call.b_callee_direction %></td>
+      </tr> 
+		<tr>
+      <td> b_sent_callee_name </td>
+      <td><%= @show_call.b_sent_callee_name %></td>
+      </tr> 
+		<tr>
+      <td> b_sent_callee_num </td>
+      <td><%= @show_call.b_sent_callee_num %></td>
+      </tr> 
+		<tr>
+      <td> call_created_epoch </td>
+      <td><%= @show_call.call_created_epoch %></td>
+      </tr> 
+</tbody>
+</table> -->
+<br>
+
+<%= link_to 'Back', show_calls_path %>
