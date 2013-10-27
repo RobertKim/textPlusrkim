@@ -1,11 +1,13 @@
 class ShowCall < ActiveRecord::Base
+  validates :uuid, presence: true
+  # validates :direction, presence: true
 	attr_accessible :uuid, 
-	                :direction, 
-	                :created, 
-	                :created_epoch, 
-	                :name, 
-	                :state,
-	                :cid_name,
+                  :direction, 
+                  :created, 
+                  :created_epoch, 
+                  :name, 
+                  :state,
+                  :cid_name,
                   :cid_num,
                   :ip_addr,
                   :dest,
@@ -39,19 +41,19 @@ class ShowCall < ActiveRecord::Base
                   :b_sent_callee_num,
                   :call_created_epoch
 
-	def self.to_csv(options = {})
-		CSV.generate(options) do |csv|
-			csv << column_names
-			all.each do |show_call|
-				csv << show_call.attributes.values_at(*column_names)
-			end
-		end
-	end
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+     csv << column_names
+     all.each do |show_call|
+      csv << show_call.attributes.values_at(*column_names)
+    end
+  end
+end
 
-	def self.import(file)
-		CSV.foreach(file.path, headers: true) do |row|
-			ShowCall.create! row.to_hash
-		end
-	end
+def self.import(file)
+  CSV.foreach(file.path, headers: true) do |row|
+   ShowCall.create! row.to_hash
+ end
+end
 
 end
