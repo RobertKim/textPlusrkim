@@ -1,5 +1,6 @@
 class ShowCall < ActiveRecord::Base
   validates :uuid, presence: true
+  validates :direction, presence: true
   # validates :direction, presence: true
 	attr_accessible :uuid, 
                   :direction, 
@@ -43,17 +44,17 @@ class ShowCall < ActiveRecord::Base
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-     csv << column_names
-     all.each do |show_call|
-      csv << show_call.attributes.values_at(*column_names)
+      csv << column_names
+      all.each do |show_call|
+        csv << show_call.attributes.values_at(*column_names)
+      end
     end
   end
-end
 
-def self.import(file)
-  CSV.foreach(file.path, headers: true) do |row|
-   ShowCall.create! row.to_hash
- end
-end
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      ShowCall.create! row.to_hash
+    end
+  end
 
 end

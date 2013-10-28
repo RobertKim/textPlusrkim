@@ -12,4 +12,14 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  def setup
+		@sc = show_calls(:one)
+	end	
+
+  def assert_presence(model, field)
+		model.valid?
+		assert_match /can't be blank/, model.errors[field].join, "Presence error for #{field} not found on #{model.class}"
+  end
+
 end
